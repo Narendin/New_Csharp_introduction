@@ -2,46 +2,44 @@
 {
     public class BankAccount
     {
-        private int _id;
+        private readonly int _id;
         private decimal _balance;
         private AccountType _accountType;
         private static int _lastId;
 
-        public int Id
+        public BankAccount()
         {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
+            _id = GetNextId();
+            _balance = 0;
+            _accountType = AccountType.Deposit;
         }
 
-        public decimal Balance
+        public BankAccount(decimal balance)
         {
-            get
-            {
-                return _balance;
-            }
-            set
-            {
-                _balance = value;
-            }
+            _id = GetNextId();
+            _balance = balance;
+            _accountType = AccountType.Deposit;
         }
 
-        public AccountType AccountType
+        public BankAccount(AccountType accountType)
         {
-            get
-            {
-                return _accountType;
-            }
-            set
-            {
-                _accountType = AccountType;
-            }
+            _id = GetNextId();
+            _balance = 0;
+            _accountType = accountType;
         }
+
+        public BankAccount(decimal balance, AccountType accountType)
+        {
+            _id = GetNextId();
+            _balance = balance;
+            _accountType = accountType;
+        }
+
+        public int Id => _id;
+
+        public decimal Balance => _balance;
+
+        public AccountType AccountType => _accountType;
 
         private int GetNextId()
         {
