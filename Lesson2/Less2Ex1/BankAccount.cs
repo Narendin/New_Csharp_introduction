@@ -46,6 +46,18 @@
             return ++_lastId;
         }
 
+        public decimal GetMoney(decimal money)
+        {
+            if (_balance < money) return 0;
+            _balance -= money;
+            return money;
+        }
+
+        public void PutMoney(decimal money)
+        {
+            _balance += money;
+        }
+
         public override string ToString()
         {
             return $"Номер счета: {_id}; Тип счета: {_accountType}; Остаток на текущий момент, руб.: {_balance}.";
