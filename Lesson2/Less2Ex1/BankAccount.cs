@@ -5,6 +5,7 @@
         private int _id;
         private decimal _balance;
         private AccountType _accountType;
+        private static int _lastId;
 
         public int Id
         {
@@ -40,6 +41,11 @@
             {
                 _accountType = AccountType;
             }
+        }
+
+        private int GetNextId()
+        {
+            return ++_lastId;
         }
 
         public override string ToString()
