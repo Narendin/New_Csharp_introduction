@@ -60,7 +60,7 @@
 
         public bool TransferFrom(ref BankAccount bankAccount, decimal money)
         {
-            bankAccount.GetMoney(money);
+            if (bankAccount == null || bankAccount.GetMoney(money) == 0) return false;
             this.PutMoney(money);
             return true;
         }

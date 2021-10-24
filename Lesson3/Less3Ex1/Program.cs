@@ -23,6 +23,10 @@ namespace Less3Ex1
             Console.WriteLine(account);
             Console.WriteLine(newAccount);
 
+            BankAccount a = null;
+
+            account.TransferFrom(ref a, 500);
+
             Console.ReadKey();
         }
     }
